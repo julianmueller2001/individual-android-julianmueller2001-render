@@ -1,8 +1,8 @@
 import {get} from '@loopback/rest';
 
-export class HelloController {
+export class TestController {
   @get('/test')
-  bye(): string {
+  test(): string {
     return 'Goodbye world!';
   }
 }
