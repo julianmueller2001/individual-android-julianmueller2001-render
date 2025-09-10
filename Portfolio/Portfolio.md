@@ -1,12 +1,12 @@
 # Portfolio
 
 ## Personal Information ##
-- **Name:**  
-- **Student ID:**  
-- **Course/Program:**  
-- **Academic Year/Semester:**  
-- **Mentor/Supervisor:**  
-- **Date Created:**  
+- **Name: Julian Müller**  
+- **Student ID: 5567998**  
+- **Course/Program: Project 3**  
+- **Academic Year/Semester: 2025-2026, Semester 3**  
+- **Mentor/Supervisor: **  
+- **Date Created: 03.09.2025**  
 
 ## Learning Outcomes and Entry Level
 
@@ -17,8 +17,9 @@ In this section students specify their entry level for every learning outcome an
 **Definition:**  
 The student is able to apply agile project management techniques in a semi-structured project with well-defined boundaries regarding the requirements. **(Manage)**
 
-#### Entry Level:  
+#### Entry Level: Beginner 
 Example: (Exploring level – I am becoming aware of agile techniques, but I still need to gain more experience in this field).
+
 
 ---
 
@@ -93,7 +94,7 @@ Example: *(Developing level – I am able to apply the skills I have gained from
 
 **Evidence**
 
-Here add your evidence (link to a documnet or online source or github repository).
+Here add your evidence (link to a document or online source or github repository).
 
 **Reflection**
 
@@ -108,7 +109,7 @@ Reflect on what you learned and what went well/not after looking back at the end
 
 **Evidence**
 
-Here add your evidence (link to a documnet or online source or github repository).
+Here add your evidence (link to a document or online source or github repository).
 
 **Reflection**
 
