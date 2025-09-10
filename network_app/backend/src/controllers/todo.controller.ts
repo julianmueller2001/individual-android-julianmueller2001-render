@@ -17,7 +17,7 @@ import {
   requestBody,
   response,
 } from '@loopback/rest';
-import {Todo} from '../models';
+import {Todo, TodoList} from '../models';
 import {TodoRepository} from '../repositories';
 
 export class TodoController {
@@ -45,6 +45,24 @@ export class TodoController {
     todo: Omit<Todo, 'id'>,
   ): Promise<Todo> {
     return this.todoRepository.create(todo);
+  }
+
+  @get('/todos/{id}/todo-list', {
+    responses: {
+      '200': {
+        description: 'TodoList belonging to Todo',
+        content: {
+          'application/json': {
+            schema: {type: 'array', items: getModelSchemaRef(TodoList)},
+          },
+        },
+      },
+    },
+  })
+  async getTodoList(
+    @param.path.number('id') id: typeof Todo.prototype.id,
+  ): Promise<TodoList> {
+    return this.todoRepository.todoList(id);
   }
 
   @get('/todos/count')

@@ -1,16 +1,23 @@
 {
   "ids": {
-    "Todo": 8
+    "Todo": 8,
+    "TodoList": 5
   },
   "models": {
     "Todo": {
-      "1": "{\"title\":\"string\",\"isComplete\":true,\"id\":1}",
-      "2": "{\"title\":\"string\",\"isComplete\":true,\"id\":2}",
-      "3": "{\"title\":\"string\",\"isComplete\":true,\"id\":3}",
-      "4": "{\"title\":\"string\",\"isComplete\":true,\"id\":4}",
-      "5": "{\"title\":\"string2\",\"isComplete\":true,\"id\":5}",
-      "6": "{\"title\":\"string2\",\"isComplete\":true,\"id\":6}",
-      "7": "{\"title\":\"string2\",\"isComplete\":true,\"id\":7}"
+      "1": "{\"title\":\"string\",\"isComplete\":true,\"todoListId\":1,\"id\":1}",
+      "2": "{\"title\":\"string\",\"isComplete\":true,\"todoListId\":1,\"id\":2}",
+      "3": "{\"title\":\"string\",\"isComplete\":true,\"todoListId\":1,\"id\":3}",
+      "4": "{\"title\":\"string\",\"isComplete\":true,\"todoListId\":2,\"id\":4}",
+      "5": "{\"title\":\"string2\",\"isComplete\":true,\"todoListId\":2,\"id\":5}",
+      "6": "{\"title\":\"string2\",\"isComplete\":true,\"todoListId\":2,\"id\":6}",
+      "7": "{\"title\":\"string2\",\"isComplete\":true,\"todoListId\":1,\"id\":7}"
+    },
+    "TodoList": {
+      "1": "{\"title\":\"Sith lord's check list\",\"color\":\"blue\",\"id\":1}",
+      "2": "{\"title\":\"My daily chores\",\"color\":\"red\",\"id\":2}",
+      "3": "{\"title\":\"newList\",\"color\":\"red\",\"id\":3}",
+      "4": "{\"title\":\"string\",\"color\":\"string\",\"id\":4}"
     }
   }
 }
