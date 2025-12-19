@@ -26,27 +26,6 @@ export class TodoController {
     public todoRepository : TodoRepository,
   ) {}
 
-  // @post('/todos')
-  // @response(200, {
-  //   description: 'Todo model instance',
-  //   content: {'application/json': {schema: getModelSchemaRef(Todo)}},
-  // })
-  // async create(
-  //   @requestBody({
-  //     content: {
-  //       'application/json': {
-  //         schema: getModelSchemaRef(Todo, {
-  //           title: 'NewTodo',
-  //           exclude: ['id'],
-  //         }),
-  //       },
-  //     },
-  //   })
-  //   todo: Omit<Todo, 'id'>,
-  // ): Promise<Todo> {
-  //   return this.todoRepository.create(todo);
-  // }
-
   @post('/todos', {
     responses: {
       '200': {
