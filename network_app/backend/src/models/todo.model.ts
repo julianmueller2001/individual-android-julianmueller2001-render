@@ -1,6 +1,5 @@
 import {Entity, model, property, belongsTo} from '@loopback/repository';
-import {TodoList, TodoListWithRelations} from './todo-list.model';
-
+import {TodoList} from './todo-list.model';
 
 @model()
 export class Todo extends Entity {
@@ -32,7 +31,7 @@ export class Todo extends Entity {
 }
 
 export interface TodoRelations {
-    todoList?: TodoListWithRelations
+  todoList?: TodoList;
 }
 
 export type TodoWithRelations = Todo & TodoRelations;
