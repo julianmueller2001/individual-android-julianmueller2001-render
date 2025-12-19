@@ -3,7 +3,7 @@ import {juggler} from '@loopback/repository';
 
 const config = {
   name: 'postgresloopbacktutorial',
-  connector: 'postgres',
+  connector: 'postgresql',
   url: 'postgresql://julian:3jXTLDJsopBME53jnnSyt93oZOupM6XF@dpg-d30m3gvfte5s73ej4qdg-a.frankfurt-postgres.render.com:5432/postgresloopbacktutorial?ssl=true',
 };
 
