@@ -4,7 +4,7 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'postgresloopbacktutorial',
   connector: 'postgres',
-  url: 'postgresql@dpg-d30m3gvfte5s73ej4qdg-a.frankfurt-postgres.render.com/postgresloopbacktutorialpostgresql://julian:3jXTLDJsopBME53jnnSyt93oZOupM6XF@dpg-d30m3gvfte5s73ej4qdg-a.frankfurt-postgres.render.com:5432/postgresloopbacktutorial?ssl=true',
+  url: 'postgresql://julian:3jXTLDJsopBME53jnnSyt93oZOupM6XF@dpg-d30m3gvfte5s73ej4qdg-a.frankfurt-postgres.render.com:5432/postgresloopbacktutorial?ssl=true',
 };
 
 // Observe application's life cycle to disconnect the datasource when
