@@ -1,7 +1,7 @@
 import {inject} from '@loopback/core';
 import {DefaultCrudRepository} from '@loopback/repository';
 import {Address, AddressRelations} from '../models';
-import {DbDataSource} from '../datasources';
+import {JwtDbDataSource} from '../datasources';
 
 export class AddressRepository extends DefaultCrudRepository<
   Address,
@@ -9,7 +9,7 @@ export class AddressRepository extends DefaultCrudRepository<
   AddressRelations
 > {
   constructor(
-    @inject('datasources.db') dataSource: DbDataSource,
+    @inject('datasources.jwtdb') dataSource: JwtDbDataSource,
   ) {
     super(Address, dataSource);
   }
