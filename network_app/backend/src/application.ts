@@ -4,7 +4,13 @@ import {
   RestExplorerBindings,
   RestExplorerComponent,
 } from '@loopback/rest-explorer';
+import {AuthenticationComponent} from '@loopback/authentication';
 import {RepositoryMixin} from '@loopback/repository';
+import {
+  JWTAuthenticationComponent,
+  SECURITY_SCHEME_SPEC,
+  UserServiceBindings,
+} from '@loopback/authentication-jwt';
 import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
@@ -40,5 +46,9 @@ export class BackendApp extends BootMixin(
         nested: true,
       },
     };
+
+    this.component(AuthenticationComponent);
+    // Mount jwt component
+    this.component(JWTAuthenticationComponent);
   }
 }
