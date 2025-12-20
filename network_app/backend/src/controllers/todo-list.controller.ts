@@ -19,7 +19,9 @@ import {
 } from '@loopback/rest';
 import {TodoList} from '../models';
 import {TodoListRepository} from '../repositories';
+import {authenticate} from "@loopback/authentication";
 
+@authenticate('jwt')
 export class TodoListController {
   constructor(
     @repository(TodoListRepository)

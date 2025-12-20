@@ -12,13 +12,13 @@ const config = {
 // gracefully. The `stop()` method is inherited from `juggler.DataSource`.
 // Learn more at https://loopback.io/doc/en/lb4/Life-cycle.html
 @lifeCycleObserver('datasource')
-export class JwtDbDataSource extends juggler.DataSource
+export class DbDataSource extends juggler.DataSource
   implements LifeCycleObserver {
-  static dataSourceName = 'jwtdb';
+  static dataSourceName = 'db';
   static readonly defaultConfig = config;
 
   constructor(
-    @inject('datasources.config.jwtdb', {optional: true})
+    @inject('datasources.config.db', {optional: true})
     dsConfig: object = config,
   ) {
     super(dsConfig);

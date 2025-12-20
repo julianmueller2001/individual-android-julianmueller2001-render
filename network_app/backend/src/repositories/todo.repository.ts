@@ -1,6 +1,6 @@
 import {inject, Getter} from '@loopback/core';
 import {DefaultCrudRepository, repository, BelongsToAccessor} from '@loopback/repository';
-import {JwtDbDataSource} from '../datasources';
+import {DbDataSource} from '../datasources';
 import {Todo, TodoRelations, TodoList} from '../models';
 import {TodoListRepository} from './todo-list.repository';
 
@@ -12,7 +12,7 @@ export class TodoRepository extends DefaultCrudRepository<
   public readonly todoList: BelongsToAccessor<TodoList, typeof Todo.prototype.id>;
 
   constructor(
-    @inject('datasources.jwtdb') dataSource: JwtDbDataSource,
+    @inject('datasources.db') dataSource: DbDataSource,
     @repository.getter('TodoListRepository')
     protected todoListRepositoryGetter: Getter<TodoListRepository>,
   ) {

@@ -5,7 +5,7 @@ import {
   HasManyRepositoryFactory,
 } from '@loopback/repository';
 import {Friend, FriendRelations, Address} from '../models';
-import {JwtDbDataSource} from '../datasources';
+import {DbDataSource} from '../datasources';
 import {AddressRepository} from './address.repository';
 
 export class FriendRepository extends DefaultCrudRepository<
@@ -19,7 +19,7 @@ export class FriendRepository extends DefaultCrudRepository<
   >;
 
   constructor(
-    @inject('datasources.jwtdb') dataSource: JwtDbDataSource,
+    @inject('datasources.db') dataSource: DbDataSource,
     @repository.getter('AddressRepository')
     protected addressRepositoryGetter: Getter<AddressRepository>,
   ) {

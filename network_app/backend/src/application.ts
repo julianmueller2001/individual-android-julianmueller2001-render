@@ -4,17 +4,20 @@ import {
   RestExplorerBindings,
   RestExplorerComponent,
 } from '@loopback/rest-explorer';
+import {
+  TokenServiceBindings,
+  UserRepository,
+  UserServiceBindings,
+  JWTAuthenticationComponent,
+  UserCredentialsRepository, MyUserService, // Add this import
+} from '@loopback/authentication-jwt';
 import {AuthenticationComponent} from '@loopback/authentication';
 import {RepositoryMixin} from '@loopback/repository';
-import {
-  JWTAuthenticationComponent,
-  SECURITY_SCHEME_SPEC,
-  UserServiceBindings,
-} from '@loopback/authentication-jwt';
 import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import {MySequence} from './sequence';
+import {DbDataSource} from './datasources';
 
 export {ApplicationConfig};
 
@@ -48,7 +51,16 @@ export class BackendApp extends BootMixin(
     };
 
     this.component(AuthenticationComponent);
-    // Mount jwt component
     this.component(JWTAuthenticationComponent);
+
+    // 1. Bind the datasource for the JWT extension to use
+    this.dataSource(DbDataSource, UserServiceBindings.DATASOURCE_NAME);
+
+    // 2. EXPLICITLY bind the repositories so migrate.ts can find them
+    this.bind(UserServiceBindings.USER_REPOSITORY).toClass(UserRepository);
+    this.bind(UserServiceBindings.USER_CREDENTIALS_REPOSITORY).toClass(UserCredentialsRepository);
+
+    //new
+    this.bind(UserServiceBindings.USER_SERVICE).toClass(MyUserService);
   }
 }
