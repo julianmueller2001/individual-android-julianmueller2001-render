@@ -53,14 +53,13 @@ export class BackendApp extends BootMixin(
     this.component(AuthenticationComponent);
     this.component(JWTAuthenticationComponent);
 
-    // 1. Bind the datasource for the JWT extension to use
+// Bind the datasource for the extension
     this.dataSource(DbDataSource, UserServiceBindings.DATASOURCE_NAME);
 
-    // 2. EXPLICITLY bind the repositories so migrate.ts can find them
-    this.bind(UserServiceBindings.USER_REPOSITORY).toClass(UserRepository);
-    this.bind(UserServiceBindings.USER_CREDENTIALS_REPOSITORY).toClass(UserCredentialsRepository);
+// FORCE the migration script to see these repositories
+    this.repository(UserRepository);
+    this.repository(UserCredentialsRepository);
 
-    //new
     this.bind(UserServiceBindings.USER_SERVICE).toClass(MyUserService);
   }
 }
