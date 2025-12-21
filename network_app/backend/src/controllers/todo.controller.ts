@@ -16,16 +16,21 @@ import {
   del,
   requestBody,
   response,
+  HttpErrors,
 } from '@loopback/rest';
 import {Todo, TodoList} from '../models';
 import {TodoRepository} from '../repositories';
 import {authenticate} from "@loopback/authentication";
+import {Geocoder} from '../services';
+import {inject} from "@loopback/core";
 
 @authenticate('jwt')
 export class TodoController {
   constructor(
     @repository(TodoRepository)
     public todoRepository : TodoRepository,
+    @inject('services.Geocoder')
+    protected geoService: Geocoder,
   ) {}
 
   @post('/todos', {
@@ -49,6 +54,18 @@ export class TodoController {
     })
     todo: Omit<Todo, 'id'>,
   ): Promise<Todo> {
+    if (todo.remindAtAddress) {
+      const geo = await this.geoService.geocode(todo.remindAtAddress);
+
+      if (!geo[0]) {
+        throw new HttpErrors.BadRequest(
+          `Address not found: ${todo.remindAtAddress}`,
+        );
+      }
+
+      // Encode coordinates as "lat,lng" (Google Maps API format). See also
+      todo.remindAtGeo = `${geo[0].y},${geo[0].x}`;
+    }
     return this.todoRepository.create(todo);
   }
 
